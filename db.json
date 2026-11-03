@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Budi Santoso",
+      "email": "budi@example.com",
+      "role": "admin",
+      "is_active": true
+    },
+    {
+      "id": 2,
+      "name": "Siti Rahma",
+      "email": "siti@example.com",
+      "role": "user",
+      "is_active": true
+    }
+  ],
+  "products": [
+    {
+      "id": 101,
+      "title": "Kopi Susu Gula Aren",
+      "price": 18000,
+      "category": "Minuman"
+    },
+    {
+      "id": 102,
+      "title": "Roti Bakar Keju",
+      "price": 15000,
+      "category": "Makanan"
+    }
+  ]
+}

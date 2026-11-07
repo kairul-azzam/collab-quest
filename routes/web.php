@@ -7,9 +7,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::view('/tes-api', 'tes-api');
+Route::view('/todo/login', 'todo.login');
+Route::view('/todo/register', 'todo.register');
+Route::view('/todo/dashboard', 'todo.dashboard');
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

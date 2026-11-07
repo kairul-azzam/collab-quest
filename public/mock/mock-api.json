@@ -1,0 +1,179 @@
+{
+  "register": {
+    "success": {
+      "status": 201,
+      "body": {
+        "success": true,
+        "message": "Registrasi berhasil",
+        "data": {
+          "user": { "id": 1, "name": "Budi", "email": "budi@example.com" }
+        }
+      }
+    },
+    "validasi_gagal": {
+      "status": 422,
+      "body": {
+        "success": false,
+        "message": "Validasi gagal",
+        "errors": { "email": ["Email sudah terdaftar"] }
+      }
+    }
+  },
+
+  "login": {
+    "success": {
+      "status": 200,
+      "body": {
+        "success": true,
+        "message": "Login berhasil",
+        "data": {
+          "token": "1|mocktokenabcdefghijklmnopqrstuvwxyz",
+          "user": { "id": 1, "name": "Budi", "email": "budi@example.com" }
+        }
+      }
+    },
+    "gagal": {
+      "status": 401,
+      "body": {
+        "success": false,
+        "message": "Email atau password salah"
+      }
+    }
+  },
+
+  "profile": {
+    "success": {
+      "status": 200,
+      "body": {
+        "success": true,
+        "message": "Data profil",
+        "data": { "id": 1, "name": "Budi", "email": "budi@example.com" }
+      }
+    },
+    "tanpa_token": {
+      "status": 401,
+      "body": { "message": "Unauthenticated." }
+    }
+  },
+
+  "logout": {
+    "success": {
+      "status": 200,
+      "body": { "success": true, "message": "Logout berhasil" }
+    }
+  },
+
+  "tasks_index": {
+    "success": {
+      "status": 200,
+      "body": {
+        "success": true,
+        "message": "Daftar tugas",
+        "data": [
+          { "id": 1, "title": "Kerjakan LKPD Laravel", "deadline": "2026-11-10", "status": "todo" },
+          { "id": 2, "title": "Belajar Git", "deadline": null, "status": "done" },
+          { "id": 3, "title": "Buat halaman login", "deadline": "2026-11-08", "status": "todo" }
+        ]
+      }
+    },
+    "kosong": {
+      "status": 200,
+      "body": { "success": true, "message": "Daftar tugas", "data": [] }
+    }
+  },
+
+  "tasks_store": {
+    "success": {
+      "status": 201,
+      "body": {
+        "success": true,
+        "message": "Tugas berhasil ditambahkan",
+        "data": { "id": 4, "title": "Tugas baru", "deadline": "2026-11-15", "status": "todo" }
+      }
+    },
+    "validasi_gagal": {
+      "status": 422,
+      "body": {
+        "success": false,
+        "message": "Validasi gagal",
+        "errors": { "title": ["Judul wajib diisi"] }
+      }
+    }
+  },
+
+  "tasks_show": {
+    "success": {
+      "status": 200,
+      "body": {
+        "success": true,
+        "message": "Detail tugas",
+        "data": { "id": 1, "title": "Kerjakan LKPD Laravel", "deadline": "2026-11-10", "status": "todo" }
+      }
+    },
+    "bukan_milik_sendiri": {
+      "status": 403,
+      "body": { "success": false, "message": "Kamu tidak boleh mengakses tugas ini" }
+    },
+    "tidak_ditemukan": {
+      "status": 404,
+      "body": { "success": false, "message": "Tugas tidak ditemukan" }
+    }
+  },
+
+  "tasks_update": {
+    "success": {
+      "status": 200,
+      "body": {
+        "success": true,
+        "message": "Tugas berhasil diubah",
+        "data": { "id": 1, "title": "Kerjakan LKPD Laravel (revisi)", "deadline": "2026-11-12", "status": "todo" }
+      }
+    },
+    "validasi_gagal": {
+      "status": 422,
+      "body": {
+        "success": false,
+        "message": "Validasi gagal",
+        "errors": { "title": ["Judul wajib diisi"] }
+      }
+    }
+  },
+
+  "tasks_status": {
+    "success_done": {
+      "status": 200,
+      "body": {
+        "success": true,
+        "message": "Status tugas diperbarui",
+        "data": { "id": 1, "title": "Kerjakan LKPD Laravel", "deadline": "2026-11-10", "status": "done" }
+      }
+    },
+    "success_todo": {
+      "status": 200,
+      "body": {
+        "success": true,
+        "message": "Status tugas diperbarui",
+        "data": { "id": 2, "title": "Belajar Git", "deadline": null, "status": "todo" }
+      }
+    },
+    "validasi_gagal": {
+      "status": 422,
+      "body": {
+        "success": false,
+        "message": "Validasi gagal",
+        "errors": { "status": ["Status harus todo atau done"] }
+      }
+    }
+  },
+
+  "tasks_destroy": {
+    "success": {
+      "status": 200,
+      "body": { "success": true, "message": "Tugas berhasil dihapus" }
+    },
+    "tidak_ditemukan": {
+      "status": 404,
+      "body": { "success": false, "message": "Tugas tidak ditemukan" }
+    }
+  }
+}

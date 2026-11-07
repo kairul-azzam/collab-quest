@@ -1,6 +1,7 @@
 // ===== Pengaturan =====
-const USE_MOCK = true; // true = pakai mock, false = pakai API asli
-const BASE_URL = 'http://localhost:8000/api';
+// ===== Pengaturan =====
+const USE_MOCK = false;
+const BASE_URL = 'http://127.0.0.1:8001/api';
 const MOCK_URL = '/mock/mock-api.json';
 
 // ===== Token =====
@@ -88,7 +89,7 @@ const Api = {
   updateTask(id, data, kasus = 'success') {
     return USE_MOCK
       ? mockResponse('tasks_update', kasus)
-      : request('PUT', '/tasks/' + id, data);
+      : request('PATCH', '/tasks/' + id, data);
   },
 
   updateStatus(id, status, kasus = 'success_done') {

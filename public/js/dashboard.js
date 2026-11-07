@@ -160,9 +160,9 @@ elForm.addEventListener('submit', async (e) => {
         tasks.push(baru);
         render();
         modeTambah();
-        tampilPesan(res.body.message, 'success');
+        tampilPesan('Tugas berhasil ditambahkan', 'success');
       } else {
-        tampilPesan(res.body.message, 'error');
+        tampilPesan('Gagal menambahkan tugas', 'error');
         tampilErrorField(res.body.errors);
       }
     } else {
@@ -176,9 +176,9 @@ elForm.addEventListener('submit', async (e) => {
         task.deadline = data.deadline;
         render();
         modeTambah();
-        tampilPesan(res.body.message, 'success');
+        tampilPesan('Tugas berhasil diperbarui', 'success');
       } else {
-        tampilPesan(res.body.message, 'error');
+        tampilPesan('Gagal memperbarui tugas', 'error');
         tampilErrorField(res.body.errors);
       }
     }
@@ -216,9 +216,9 @@ elDaftar.addEventListener('click', async (e) => {
       if (res.status === 200) {
         task.status = statusBaru;
         render();
-        tampilPesan(res.body.message, 'success');
+        tampilPesan('Status tugas berhasil diperbarui', 'success');
       } else {
-        tampilPesan(res.body.message, 'error');
+        tampilPesan('Gagal memperbarui status tugas', 'error');
         tombol.disabled = false;
       }
     }
@@ -235,9 +235,9 @@ elDaftar.addEventListener('click', async (e) => {
         tasks = tasks.filter((t) => t.id !== id);
         if (editingId === id) modeTambah();
         render();
-        tampilPesan(res.body.message, 'success');
+        tampilPesan('Tugas berhasil dihapus', 'success');
       } else {
-        tampilPesan(res.body.message, 'error');
+        tampilPesan('Gagal menghapus tugas', 'error');
         tombol.disabled = false;
       }
     }

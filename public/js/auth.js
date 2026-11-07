@@ -86,6 +86,7 @@ if (formRegister) {
       const res = await Api.register(data, kasus || 'success');
 
       if (res.status === 201) {
+        setToken(res.body.data.token);
         tampilkanPesan('Registrasi berhasil! Mengarahkan ke halaman dashboard...', 'success');
         setTimeout(() => (window.location.href = '/todo/dashboard'), 1500);
         return;
